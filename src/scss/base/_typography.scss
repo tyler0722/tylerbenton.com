@@ -1,0 +1,24 @@
+@use '../utilities' as *;
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: $black;
+  font-family: 'TT Hoves';
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 3.2rem;
+  font-weight: 500;
+  letter-spacing: -0.04rem;
+  line-height: 1;
+}
+
+p {
+  letter-spacing: -0.02rem;
+  line-height: 1.5;
+}
