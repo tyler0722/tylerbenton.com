@@ -1,0 +1,122 @@
+@use '../utilities' as *;
+
+@keyframes hover {
+  from {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(0.4rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes shift {
+  0% {
+    transform: translate(0.4rem, 0.4rem);
+  }
+  50% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0.4rem, 0.4rem);
+  }
+}
+
+.button {
+  border-radius: $radius;
+  display: inline-block;
+  padding: 1px;
+  position: relative;
+
+  &::before,
+  &::after {
+    background-color: $black;
+    border-radius: $radius;
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &::before {
+    transform: translate(0.4rem, 0.4rem);
+    z-index: 1;
+  }
+
+  &::after {
+    z-index: 2;
+  }
+
+  &__content {
+    align-items: center;
+    background-color: $white;
+    border-radius: calc($radius - 1px);
+    color: $black;
+    display: flex;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 2rem;
+    padding: 0.8rem 1.6rem;
+    position: relative;
+    white-space: nowrap;
+    z-index: 3;
+  }
+
+  &__icon {
+    fill: currentColor;
+    margin-left: 0.8rem;
+    width: 1.4rem;
+  }
+
+  &:focus,
+  &:hover {
+    animation: hover 0.9s cubic-bezier(0.26, 0.56, 0.22, 1.04) infinite;
+
+    &::before {
+      animation: shift 0.9s cubic-bezier(0.26, 0.56, 0.22, 1.04) infinite;
+      background-color: $magenta;
+    }
+
+    &::after {
+      background-image: linear-gradient(90deg, $yellow, $magenta);
+    }
+
+    .button__text {
+      background: -webkit-linear-gradient(0deg, $yellow, $magenta);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .button__icon {
+      fill: $magenta;
+    }
+  }
+
+  &:active {
+    &::before {
+      background-color: $dark-magenta;
+    }
+
+    &::after {
+      background-image: linear-gradient(90deg, $dark-yellow, $dark-magenta) !important;
+    }
+
+    .button__content {
+      background-color: darken($white, 10%);
+    }
+
+    .button__text {
+      background: -webkit-linear-gradient(0deg, $dark-yellow, $dark-magenta);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .button__icon {
+      fill: $dark-magenta;
+    }
+  }
+}
