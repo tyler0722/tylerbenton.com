@@ -1,3 +1,11 @@
-const Home = () => <h1>tylerbenton.com</h1>;
+import Introduction from '../components/introduction';
+
+const Home = () => (
+  <section>
+    <div className="container">
+      <Introduction />
+    </div>
+  </section>
+);
 
 export default Home;
