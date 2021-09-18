@@ -1,0 +1,11 @@
+@use '../utilities' as *;
+
+.introduction {
+  background-color: $white;
+  border: 1px solid $magenta;
+  padding: 3.2rem;
+
+  &__title {
+    margin-bottom: 1.2rem;
+  }
+}
