@@ -38,3 +38,9 @@ button {
   cursor: pointer;
   font-family: inherit;
 }
+
+@include respond(md) {
+  section {
+    padding: 8rem 0;
+  }
+}

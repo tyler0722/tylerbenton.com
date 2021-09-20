@@ -1,4 +1,13 @@
+@use '../utilities' as *;
+
 .container {
   margin: 0 auto;
   max-width: 88rem;
+}
+
+@include respond(md) {
+  .container {
+    max-width: 68rem;
+    padding: 0 1.6rem;
+  }
 }

@@ -8,4 +8,13 @@
   &__title {
     margin-bottom: 1.2rem;
   }
+
+  @include respond(sm) {
+    padding: 2.4rem;
+  }
+
+  @include respond(xs) {
+    border: none;
+    padding: 0;
+  }
 }
